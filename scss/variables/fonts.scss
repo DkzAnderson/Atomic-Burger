@@ -1,14 +1,23 @@
+@import './colors-theme-primary.scss';
+
 // Importa aquí tus fuentes.
 @import url("https://fonts.googleapis.com/css?family=Arvo:400,400i,700,700i&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&display=swap");
 
+html{
+  font-size: 62.5%;
+  font-family: "Open Sans", sans-serif;
+}
+
+
+
 $font-primary: "Arvo", serif;
 $font-secondary: "Open Sans", sans-serif;
 
-$font-size-small: 20px;
-$font-size-medium: 30px;
-$font-size-large: 35px;
-$font-size-extra-large: 50px;
+$font-size-small: 2rem;
+$font-size-medium: 3rem;
+$font-size-large: 3.5rem;
+$font-size-extra-large: 5rem;
 
 h1,
 h2,
@@ -24,9 +33,7 @@ h1 {
   font-weight: 300;
   line-height: 1.5;
 
-  @include for-size(m) {
-    font-size: $font-size-extra-large;
-  }
+
 }
 
 h2 {

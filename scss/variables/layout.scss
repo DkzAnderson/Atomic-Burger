@@ -1,3 +1,11 @@
+@import './colors-theme-primary.scss';
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 // Breakpoints variables.
 $xs:  360px;
 $s :  440px;
@@ -5,59 +13,43 @@ $m :  768px;
 $l : 1280px;
 $xl: 1440px;
 
-// Mixin para manejar distintos breakpoints.
-
-@mixin for-size($size){
-    @if $size == xs {
-        @media (max-width: $s) { $content; }
-    } @else if $size == m {
-        @media (min-width:$m) { $content}
-    }  @else if $size == l {
-        @media (min-width:$l) { $content}
-    }  @else if $size == xl {
-        @media (min-width:$xl) { $content}
-    }
+body{
+    width: 100%;
+    padding: 10px 10px;
+    column-gap: 2%;
+    display: grid;
+    background-color: $color-black;
 }
 
 // Configuración de columnas.
 :root{
     --columns: 4;
     --colum-gap: 6.67%;
+}
 
-    @include for-size(m){
-        --columns: 12;
-        --colum-gap: 2.27%;
+@media (max-width:$xs) {
+    body{
+        grid-template-columns: repeat(4, 1fr);
     }
+}
 
-    @include for-size(l){
-        --columns: 12;
-        --colum-gap: 2.19%;
+@media (min-width:$s) {
+    body{
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width:$m) {
+    body{
+        grid-template-columns: repeat(12, 1fr);
     }
 }
 
 
-// configuración de la grilla
-.grid{
-    margin: 0 16px;
-
-    @include for-size(m){
-        margin: 0 32px;
+@media (min-width:$l) {
+    body{
+        width: 100%;
+        justify-self: center;
     }
-
-    @include for-size(l){
-        margin: 0 80px;
-    }
+}
     
-    @include for-size(xl){
-        margin: 0 auto;
-        max-width: 1280px;
-    }
-}
-
-.grid,
-.subgrid {
-    display: grid;
-    grid-column-gap: var(--colum-gap);
-    grid-template-columns: repeat(--columns);
-    position: relative;
-}
